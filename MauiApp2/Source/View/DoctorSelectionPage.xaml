@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MauiApp2.Source.Component"
+             x:Class="MauiApp2.Source.View.DoctorSelectionPage"
+             Title="Seleziona un Dottore"    >
+
+    <ScrollView>
+        <FlexLayout x:Name="DoctorGrid"
+                    Wrap="Wrap"
+                    JustifyContent="Center"
+                    AlignItems="Start"
+                    Direction="Row"
+                    Padding="10"
+                    BindableLayout.ItemsSource="{Binding Doctors}">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <local:DoctorCard
+                        WidthRequest="150"
+                        HeightRequest="200"
+                        Margin="10"
+                        ParamDoctor="{Binding .}"></local:DoctorCard>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </FlexLayout>
+    </ScrollView>
+</ContentPage>

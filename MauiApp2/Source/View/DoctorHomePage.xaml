@@ -1,0 +1,64 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp2.Source.View.DoctorHomePage"
+             Title="Area del Medico"    >
+
+    <Grid RowDefinitions="Auto, *, Auto">
+
+
+
+        <!-- Contenuto centrale dinamico -->
+        <ContentView x:Name="MainContent"
+                     Grid.Row="1"  />
+        <!-- Bottom Bar -->
+        <Grid Grid.Row="2"
+      BackgroundColor="#1F1F1F"
+      ColumnDefinitions="*,*,*,*,*,*"
+      Padding="10"
+      VerticalOptions="End">
+
+            <Button Text="👤"
+            BackgroundColor="#7C4DFF"
+            TextColor="White"
+            Clicked="GoToProfile"
+            Margin="10"
+            Grid.Column="0" />
+
+            <Button Text="📄"
+            BackgroundColor="#7C4DFF"
+            TextColor="White"
+            Margin="10"
+            Clicked="GoToDocuments"
+            Grid.Column="1" />
+
+            <Button Text="📅"
+            BackgroundColor="#7C4DFF"
+            TextColor="White"
+            Margin="10"
+            Clicked="GoToAppointments"
+            Grid.Column="2" />
+
+            <Button Text="📊"
+            BackgroundColor="#7C4DFF"
+            TextColor="White"
+            Margin="10"
+            Clicked="GoToDashboard"
+            Grid.Column="3" />
+
+            <Button Text="🥗"
+            BackgroundColor="#7C4DFF"
+            TextColor="White"
+            Margin="10"
+            Clicked="GoToDiet"
+            Grid.Column="4" />
+
+            <Button Text="🏋️"
+            BackgroundColor="#7C4DFF"
+            TextColor="White"
+            Margin="10"
+            Clicked="GoToTraining"
+            Grid.Column="5" />
+        </Grid>
+    </Grid>
+
+</ContentPage>

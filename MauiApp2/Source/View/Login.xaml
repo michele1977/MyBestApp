@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp2.Source.View.Login"
+             Title="Login"
+             BackgroundColor="#f9fafa">
+
+    <!-- Grid piena pagina -->
+    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Contenuto centrato -->
+        <Grid VerticalOptions="Center" HorizontalOptions="Center">
+            <ScrollView>
+                <ContentView HorizontalOptions="Center" VerticalOptions="Center">
+                    <Frame x:Name="MainFrame"
+                           Padding="30"
+                           BackgroundColor="Transparent"
+                           HasShadow="False"
+                           BorderColor="Transparent"
+                           HorizontalOptions="Center"
+                           WidthRequest="-1">
+
+                        <!-- VisualStates per larghezza -->
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroupList>
+                                <VisualStateGroup x:Name="WidthStates">
+                                    <VisualState x:Name="Phone">
+                                        <VisualState.StateTriggers>
+                                            <AdaptiveTrigger MinWindowWidth="0" />
+                                        </VisualState.StateTriggers>
+                                        <VisualState.Setters>
+                                            <Setter TargetName="MainFrame" Property="WidthRequest" Value="-1" />
+                                            <Setter TargetName="MainFrame" Property="HorizontalOptions" Value="FillAndExpand" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                    <VisualState x:Name="TabletOrDesktop">
+                                        <VisualState.StateTriggers>
+                                            <AdaptiveTrigger MinWindowWidth="600" />
+                                        </VisualState.StateTriggers>
+                                        <VisualState.Setters>
+                                            <Setter TargetName="MainFrame" Property="WidthRequest" Value="500" />
+                                            <Setter TargetName="MainFrame" Property="HorizontalOptions" Value="Center" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateGroupList>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <!-- CONTENUTO -->
+                        <VerticalStackLayout Spacing="25">
+                            <Image Source="mybvlogo.png"
+                                   HeightRequest="120"
+                                   HorizontalOptions="Center" />
+
+                            <Label Text="Accedi al tuo account"
+                                   FontSize="22"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="Center"
+                                   TextColor="#1a1a1a" />
+
+                            <Frame CornerRadius="8"
+                                   Padding="0"
+                                   BackgroundColor="#e7f0ff"
+                                   HasShadow="False">
+                                <Entry Placeholder="Email"
+                                       Keyboard="Email"
+                                       HeightRequest="50"
+                                       BackgroundColor="Transparent"
+                                       TextColor="Black"
+                                       PlaceholderColor="Gray" />
+                            </Frame>
+
+                            <Frame CornerRadius="8"
+                                   Padding="0"
+                                   BackgroundColor="#e7f0ff"
+                                   HasShadow="False">
+                                <Entry Placeholder="Password"
+                                       IsPassword="True"
+                                       HeightRequest="50"
+                                       BackgroundColor="Transparent"
+                                       TextColor="Black"
+                                       PlaceholderColor="Gray" />
+                            </Frame>
+
+                            <Button Text="Accedi"
+                                    Clicked="OnSignInClicked"
+                                    BackgroundColor="#28a745"
+                                    TextColor="White"
+                                    CornerRadius="8"
+                                    HeightRequest="50"
+                                    FontAttributes="Bold" />
+
+                            <HorizontalStackLayout HorizontalOptions="Center">
+                                <Label Text="Non hai un account? "
+                                       FontSize="14"
+                                       TextColor="Gray" />
+                                <Label Text="Registrati"
+                                       FontSize="14"
+                                       TextColor="#007BFF"
+                                       FontAttributes="Bold" />
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </Frame>
+                </ContentView>
+            </ScrollView>
+        </Grid>
+    </Grid>
+</ContentPage>
